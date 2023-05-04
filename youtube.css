@@ -1,0 +1,262 @@
+*,*::after,*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 10px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 1rem; */
+}
+
+.header_left {
+    display: flex;
+    align-items: center;
+}
+
+.header_menu {
+    margin: 0 16px 0 16px;
+}
+
+.header_menu:hover {
+    background-color: #eceaea;
+    border-radius: 20px;
+}
+
+.header_logo {
+    margin-left: 16px;
+}
+
+.menu-icons {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    align-items: center;
+    grid-gap: 1.5rem;
+}
+
+.menu-icons-1:hover {
+    background-color: #eceaea;
+    border-radius: 20px;
+}
+
+.menu-channel {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* 將搜尋類別使用滿版語法flex-grow: 1;，之後在搜尋欄位套100%寬度即可隨頁面收放 */
+.search {
+    display: flex;
+    flex-grow: 1;
+    margin: 0 4rem 0 4rem;
+}
+
+.search_input {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.6em;
+    border: 1px solid #c6c6c6;
+    border-radius: 20px 0 0 20px;
+}
+
+.search_button {
+    display: flex;
+    align-items: center;
+    padding: 0 1.25rem;
+    border: 1px solid #c6c6c6;
+    background-color: #f8f8f8;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    border-left: none;
+}
+
+.search_button:hover {
+    background-color: #eceaea;
+}
+
+.search a {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+}
+
+.search a:hover {
+    background-color: #eceaea;
+    border-radius: 20px;
+}
+
+/* 影片類別css */
+.top-menu {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.menu-1 {
+    display: flex;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    margin: 0.5rem;
+    background-color: #f3f2f2;
+}
+
+.menu-1:hover {
+    background-color: #eceaea;
+}
+
+/* 中間版位css */
+.mainbody {
+    display: flex;
+    height: calc(100%-70px);
+}
+
+/* 左側欄位css */
+.sidebar {
+    background-color: white;
+    width: 80px;
+}
+
+.sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px 0;
+}
+
+.sidebar-icons:hover {
+    background-color: #eceaea;
+    border-radius: 10px;
+}
+
+.sidebar-font {
+    font-size: 0.8rem;
+}
+
+/* 影片板位css */
+.video-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.video-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+
+}
+
+.video-text {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1rem;
+
+}
+
+.channel-icon {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin-right: 0.75rem;
+}
+
+.video-deta {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-title {
+    color: black;
+    text-decoration: none;
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.video-channel-name {
+    text-decoration: none;
+    margin-bottom: 0.1rem;
+    transition: color 600ms;
+    width: 100%;
+}
+
+.video-channel-name:hover {
+    color: #111;
+}
+
+.video-channel-name, .video-view {
+    color: #555;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.video-href {
+    /* 配合下方絕對定位設定相對定位，讓時間軸可以對齊 */
+    position: relative;
+    display: flex;
+}
+
+.video-href::before {
+    /* 針對data-duration屬性增加內容 */
+    content: attr(data-duration);
+    /* 設為絕對定位 */
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background-color: black;
+    color: white;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+}
+
+/* 因video-section的父級容器寬度不夠無法用grid排版，故設定100%寬度 */
+.video {
+    width: 100%;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+}
+
+.video-section {
+    display: grid;
+    /* 為了隨瀏覽器視窗縮放，需先設定minmax的最小及最大寬度，再設定auto-fill讓內容自動隨視窗排列 */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 3rem 1rem;
+    margin: 0 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid #ddd;
+}
+
+/* 設定video-section第一個容器的屬性取消 */
+.video-section:first-child {
+    border: none;
+}
+
+.video-section-title {
+    display: flex;
+    /* 從第一格佔據到最後一行 */
+    grid-column: 1/-1;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.video-section-title-clace {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #555;
+}
